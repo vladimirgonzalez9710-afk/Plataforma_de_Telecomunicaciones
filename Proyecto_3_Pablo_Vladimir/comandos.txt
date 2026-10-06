@@ -1,0 +1,19 @@
+scp -i servidor-linux-pavlacho.pem     ubuntu@3.16.78.13:/home/ubuntu/servidor_AWS.c     . -Para pasarme un arhivo del servidor a la compu
+
+sudo fuser -k 8080/tcp - Para matar puerto en uso
+
+
+Comando para conectarme por ssh al servidor AWS
+ssh -i servidor-linux-pavlacho.pem ubuntu@3.16.78.13   -Conectarme por ssh
+
+Comando para compilar el servidor_AWS.c
+-gcc servidor_AWS.c -o servidor_AWS -pthread $(pkg-config --cflags --libs mariadb)
+
+Comando para compilar PC_uart.c
+-gcc PC_uart.c uart_protocol.c -o PC_uart -lncurses -lpthread
+
+Comando para compilar la Terminal.c
+-gcc Terminal.c -o Terminal -lpthread
+
+Comando para compilar el puente_ras.c
+-gcc puente_ras.c uart_protocol.c -o puente_ras -lncurses -lpthread
